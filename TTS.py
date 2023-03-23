@@ -49,7 +49,7 @@ def playAudio(xml):
     ssml_string = xml
     result = speech_synthesizer.speak_ssml_async(ssml_string).get()
     stream = speechsdk.AudioDataStream(result)
-    stream.save_to_wav_file("C:/Users\/user\PycharmProjects/testing1/ssml.wav")
+    stream.save_to_wav_file("")
 
 
 
