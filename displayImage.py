@@ -3,8 +3,9 @@ from PIL import Image, ImageTk
 import requests
 from io import BytesIO
 import threading
+from PIL import ImageFile, Image
 
-
+ImageFile.LOAD_TRUNCATED_IMAGES = True
 class App(threading.Thread):
     def __init__(self):
         threading.Thread.__init__(self)

@@ -35,7 +35,7 @@ def promptSetup3(name, trait, gender, bot):
     print("Generating your waifu, please wait......")
 
     success, response, message = bot.ask("I want you to act as my friend " + name + ","
-                                         " a Japanese high school " + gender + " with " + trait + ","
+                                         " a Japanese high school " + gender + " with a personality of" + trait + ","
                                          " who attends the same school as me."
                                          " please start the conversation by greeting me,"
                                          " and keep your responses to around 3 or 4 sentences."

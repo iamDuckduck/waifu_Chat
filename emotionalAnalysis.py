@@ -32,8 +32,10 @@ def emotionalAnalysis(prompt):
     response = openai.Completion.create(
         model="text-davinci-003",
         prompt="The following is a quote and whether it is cheerful, unfriendly, excited, sad, "
-               "friendly, neutral, or angry:\n"
-               "text:" + prompt,
+               "friendly, neutral, or angry.\n"
+               "Please only reply me cheerful, unfriendly, excited, sad, "
+               "friendly, neutral, or angry."
+               "The quote:" + prompt,
         temperature=0,
         max_tokens=1024,
     )
@@ -42,10 +44,16 @@ def emotionalAnalysis(prompt):
 
     # we should have cheerful, unfriendly, excited, sad, friendly, neutral(friendly), angry.
     print('Emotion: ' + emotion)
+
+    #HERE
     if emotion == 'neutral':
         emotion = 'friendly'
         print('updated emotion: ' + emotion)
         return emotion
+
+    # if our davinci-003 being so dumb and gave stupid response, we just set it friendly anyway
+    if emotion not in ['cheerful', 'unfriendly', 'excited', 'sad', 'friendly', 'angry']:
+        emotion = 'friendly'
 
     return emotion
 
@@ -61,7 +69,7 @@ def emotionalAnalysis(prompt):
 # unfriendly:”
 # printAndPlay('ahh...... you again? Just make it quick', 'Test:')
 # excited
-# printAndPlay('Really really really!? I am so excited about it!', 'Test:')
+# printAndPlay("I'm so excited.", 'Test:')
 # sad
 # printAndPlay("I just failed my test.", 'Test:')
 # angry
