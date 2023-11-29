@@ -1,2 +1,2 @@
 # waifu_Chat
-idk
+outdated
